@@ -3,7 +3,6 @@
 type Planet = String
 data Orbit = Orb Planet Planet
     deriving Show
-type Graph = ([Planet], [Orbit])
 
 testInput :: [Orbit]
 testInput = [Orb "COM" "B", Orb "B" "C",Orb "C" "D", Orb "D" "E", Orb "E" "F", Orb "B" "G", Orb "G" "H", Orb "D" "I", Orb "E" "J", Orb "J" "K", Orb "K" "L"]

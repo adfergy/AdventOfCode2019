@@ -1,3 +1,8 @@
+{-# LANGUAGE LambdaCase #-}
+
+import Control.Arrow ((&&&), second)
+import qualified Data.Maybe as Maybe (fromMaybe)
+
 -- Part A
 
 type Pixel = Int
@@ -32,49 +37,52 @@ getDigitsInLayer :: Int -> Layer -> Int
 getDigitsInLayer n = length . filter (n==) . concat
 
 leastZeros :: Layer
-leastZeros = snd . minimum . map (\lay -> (getDigitsInLayer 0 lay, lay)) . getImage $ inputInt
+leastZeros = snd . minimum . map (getDigitsInLayer 0 &&& id) . getImage $ inputInt
 
 answerA :: Int
-answerA = (getDigitsInLayer 1 leastZeros) * (getDigitsInLayer 2 leastZeros)
+answerA = (flip getDigitsInLayer leastZeros *** flip getDigitsInLayer leastZeros) (1, 2)
 
 -- Part B
 type MaybeRow = [Maybe Pixel]
 type Render = [MaybeRow]
 
 coverLayer :: MaybeRow
-coverLayer = take layerSize (repeat Nothing)
+coverLayer = take layerSize . repeat $ Nothing
 
 combineLayers :: MaybeRow -> Row -> MaybeRow
-combineLayers [] [] = []
-combineLayers (Nothing:ms) (2:xs) = Nothing : combineLayers ms xs
-combineLayers (Nothing:ms) (x:xs) = Just x : combineLayers ms xs
-combineLayers (m:ms) (x:xs) = m : combineLayers ms xs
+combineLayers = curry 
+  ( map
+    (\case
+      (Nothing, 2) -> Nothing
+      (Nothing, x) -> Just x
+      (m, _) -> m
+    )
+  . uncurry zip
+  )
 
 getRender :: MaybeRow -> Int -> Render
-getRender xs 1 = [take imageWidth xs]
-getRender xs n = take imageWidth xs : getRender (drop imageWidth xs) (n-1)
+getRender = curry
+  ( unfoldr
+    (\case
+      (_,  0) -> Nothing
+      (xs, n) -> Just (second (, n-1) . splitAt imageWidth $ xs)
+    )
+  )
 
 renderImage :: Image -> MaybeRow -> Render
-renderImage [] cov = getRender cov imageHeight 
-renderImage (i:is) cov =
-  let c = combineLayers cov (concat i) in 
-  renderImage is c
+renderImage is cov = getRender (foldr (flip combineLayers . concat) cov is) imageHeight
 
 render :: Layer
 render = map (map fromMaybe) (renderImage (getImage inputInt) coverLayer)
 
 fromMaybe :: Maybe (Pixel) -> Pixel
-fromMaybe (Just p) = p
-fromMaybe Nothing = error "Transparent Pixel"
+fromMaybe = Maybe.fromMaybe . error $ "Transparent Pixel"
 
 printRender :: Layer -> String
-printRender [] = ""
-printRender (l:ls) = "-- " ++ printRow l ++ "\n" ++ printRender ls 
+printRender = concat . foldr (\l -> "-- " ++ printRow l ++ "\n") 
 
 printRow :: Row -> String
-printRow [] = ""
-printRow (1:xs) = "X" ++ printRow xs
-printRow (_:xs) = " " ++ printRow xs
+printRow = map (\case 1 -> 'X'; _ -> ' ')
 
 answerB :: IO ()
 answerB = putStr (printRender render)

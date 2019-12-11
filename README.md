@@ -4,6 +4,10 @@ My answers to the challenges for 2019 posted on https://adventofcode.com/
 
 Written in Haskell.
 
+### Compiler
+
+See the compiler folder for more information, this compiles code into the IntCode machine.
+
 ### Day 1
 
 Day 1 was almost trivial with a functional language. I decided to use type synonyms to fit with the story presented in the challenge, to make type signatures readable in this context.

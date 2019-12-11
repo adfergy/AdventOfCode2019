@@ -15,13 +15,17 @@ if(true){
     print(x);
 }
 ```
+
 > ***NB*** those programs are equivalent
+
 Thus I have created a compiler which takes this little Java-like language to the IntCode machine. I have currently supported variables for both Integer and Boolean primitives, 'While' and 'For' loops, and a 'Print' statement. This allows use of most of the functionality of the IntCode machine, although I would like to implement user input in the future.
 ### Language Syntax
 The small language has a few quirks. I'll cover the syntax required to write a program in it.
 #### Variables
 Before a variable is accessed, it must be initialised - this is my simple way of allowing the compiler to find all the variables in the program.  Assignment uses the symbol ```:=``` rather than ```=``` - this is entirely due to my own preference.  
+
 >***NB***   you cannot declare a variable and assing to it in a single statement.
+
 ```javascript
 bool x; //A Boolean Variable
 var y; //An Integer Variable
@@ -30,6 +34,7 @@ x := true;
 y := 10;
 ```
 > ***NB*** comments can be written using ``` // Comment ```
+
 #### Statements
 Like most languages, this small language supports ```if```, ```while``` and ```for``` statements, the syntax of which are as follows:
 ```javascript

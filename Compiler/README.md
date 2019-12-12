@@ -51,7 +51,7 @@ while(x > 0){
     x := x - 5;
 }
 ```
-Naturally, the output of this program is ```7,5,6,7,8,9,5```. A For loop takes a initial value, a condition and how to increment a value. 
+Naturally, the output of this program is ```7,5,6,7,8,9,10,5```. A For loop takes a initial value, a condition and how to increment a value. 
 >***NB*** there is a third semi-colon in the condition of the ```for``` statement.
 
 >***NB*** often an error from the parser generally indicates a missing semi-colon - unless specified otherwise

@@ -71,3 +71,11 @@ I opted to output the image using 'X' for a black pixel and ' ' for a white. Fro
 Day 9 again revisited the IntCode program from before and the implementation of Relative Base Access. How useful this is in the real world, I am not sure. Debugging gave me the opportunity to improve the legibility of my code from days 5 and 7. 
 
 Part b was trivial to implement but exposed the inefficiencies of both my choice of the use of case statements and the computing power of my hardworking little laptop (or lack thereof).
+
+Day 9 allowed the stack machine compiler to be written.
+
+### Day 10 
+
+Day 10 got sidetracked by my compiler implementation. The first part was completed by identifying the positions in between two co-ordinates, that are integer and lie on the line. This was completed using prime factorisation and a fraction reduction function, definately overkill but my other solutions all took too long to compute.
+
+Part B was done by computing the bearing to each visible asteroid, ordering by this bearing, and recursively doing so as more asteroids become visible.

@@ -79,3 +79,5 @@ Day 9 allowed the stack machine compiler to be written.
 Day 10 got sidetracked by my compiler implementation. The first part was completed by identifying the positions in between two co-ordinates, that are integer and lie on the line. This was completed using prime factorisation and a fraction reduction function, definately overkill but my other solutions all took too long to compute.
 
 Part B was done by computing the bearing to each visible asteroid, ordering by this bearing, and recursively doing so as more asteroids become visible.
+
+Day 10 was also the first time I used an import. I have tried to stay away from this and use only the prelude. The import was only to make computing the set difference of two lists easier.

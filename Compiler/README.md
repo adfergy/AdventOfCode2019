@@ -95,4 +95,10 @@ graph TD;
     SemanticAnalysis --> MachineCode;
     MachineCode --> IntCode;
 ```
-This graph shows the simple cycle of the compiler. The machine code almost directly represents the IntCode.
+This graph shows the simple cycle of the compiler. The machine code almost directly represents the IntCode. 
+
+### Future
+
+The correct inmplementation of the Lexer and Parser would use RegEx and Context Free Grammars - since I wrote this late at night and was not in the mood for documentation - that is not the case. Possibly I will correct this in future.
+
+There are language features that could be added - procedure calls and arrays to name only a couple. This is something I am experienced in doing so may complete if the mood hits me.

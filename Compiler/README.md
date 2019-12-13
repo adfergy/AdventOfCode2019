@@ -3,7 +3,7 @@ After Day 9 of 'Advent Of Code' the constructed IntCode machine is capable of fu
 
 > ***NB*** scroll down for instructions on running the compiler
 
-To recap - the machine was already able to perform basic operations such as Add and Multiply. Added to this were comparisons and conditional jumps. Then, on day 9, a 'relative base' was introduced whilst also asking for the implementation to store values outside of the original memory. This all gave the machine the capabilites of storing variables and - but if we wanted to create a custom script, writing 
+To recap - the machine was already able to perform basic operations such as Add and Multiply. Added to this were comparisons and conditional jumps. Then, on day 9, a 'relative base' was introduced whilst also asking for the implementation to store values outside of the original memory. This all gave the machine the capabilites of storing variables and using a stack for computation - but if we wanted to create a custom script, writing 
 ```
 [9,27,21101,5,0,2,22101,0,2,0,21101,1,0,2,1206,2,26,21101,5,0,4,204,4,1105,1,26,99]
 ```

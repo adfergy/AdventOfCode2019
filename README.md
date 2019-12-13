@@ -81,3 +81,7 @@ Day 10 got sidetracked by my compiler implementation. The first part was complet
 Part B was done by computing the bearing to each visible asteroid, ordering by this bearing, and recursively doing so as more asteroids become visible.
 
 Day 10 was also the first time I used an import. I have tried to stay away from this and use only the prelude. The import was only to make computing the set difference of two lists easier.
+
+### Day 11
+
+Day 11 saw more use of the IntCode machine. Implementing a little robot that coloured the squares of a co-ordinate system. This required a similar implementation as day 7, where the IntCode machine is paused and re-started. Naturally I originally had my co-ordinate system a mirror image of the one implemented by the IntCode program given.

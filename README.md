@@ -90,3 +90,8 @@ Day 11 saw more use of the IntCode machine. Implementing a little robot that col
 
 Day 12 was simple, the wording annoyed me. The insistance on "previous state" suggested that the 'universe' might revert back to a previous state that is NOT the initial one, and loop from there. I therefore (commented code) wrote an implementation that searched for this general solutuion. While it was successful on the tests, the main input proved too computationally large for this solution. When I changed to just looking for the initial state, I found the answer. 
 
+### Day 13
+
+After a long while trying to produce a playable game, I had the realisation that this was just like previous questions and I could write something to calculate the inputs. The code to draw the screen has been commented out, but left included. 
+
+This required the 'compute' function to return when it needed an input and none had been provided - akin to waiting.

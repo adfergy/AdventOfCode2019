@@ -95,3 +95,9 @@ Day 12 was simple, the wording annoyed me. The insistance on "previous state" su
 After a long while trying to produce a playable game, I had the realisation that this was just like previous questions and I could write something to calculate the inputs. The code to draw the screen has been commented out, but left included. 
 
 This required the 'compute' function to return when it needed an input and none had been provided - akin to waiting.
+
+### Day 14
+
+Realising on part A that waste could be re-used meant that the solution wasn't the naieve recursive one I initially thought. Instead I effectively implemented a queue, where I enqueued things that needed to be made, and kept a list handy of what I already had.
+
+Part B I implemented a binary search using my algorithm from part A and found the value where the Ore required exceeded the amount in the store.

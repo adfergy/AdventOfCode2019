@@ -61,3 +61,5 @@ canMake res n ch = let a = requires n in
 
 answerB :: Integer
 answerB = canMake reserves reserves (reserves `div` 2)
+
+--answerB = 3281820

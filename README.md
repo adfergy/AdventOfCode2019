@@ -101,3 +101,9 @@ This required the 'compute' function to return when it needed an input and none 
 Realising on part A that waste could be re-used meant that the solution wasn't the naieve recursive one I initially thought. Instead I effectively implemented a queue, where I enqueued things that needed to be made, and kept a list handy of what I already had.
 
 Part B I implemented a binary search using my algorithm from part A and found the value where the Ore required exceeded the amount in the store.
+
+### Day 15
+
+Part A was a simple breadth-first-search. I found significant performance improvements by saving the states of the machines and reverting back, rather than making the robot return to the start each time. While this lost the realism of controlling a robot, I dod originally solve this with a real robot reversing and driving everywhere each time. 
+
+Part B was just another breadth-first-search, continuing from the first one, but instead terminating when all areas had been explored. I used a co-ordinate system to record this.
